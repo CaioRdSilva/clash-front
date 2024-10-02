@@ -1,0 +1,26 @@
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10vh;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 40vw;
+  width: fit-content;
+  padding: 1rem;
+  margin-bottom: 4vh;
+  border-radius: 25px;
+  background: #ebeaea;
+}
+
+.chart {
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
