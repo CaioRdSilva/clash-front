@@ -1,5 +1,5 @@
 <main>
-  <div class="winLossPercentage">
+  <div class="winLossPercentage card">
     <form>
       <label for="winLossPercentageCardName">Card Name:</label>
       <input
@@ -35,11 +35,12 @@
       </button>
     </form>
 
-    <div style="max-width: 8vw;"><p-chart type="pie" [data]="WinLossPercentageData" [options]="options"/></div>
-    
+    <div class="chart">
+      <p-chart type="pie" [data]="WinLossPercentageData" [options]="options" />
+    </div>
   </div>
 
-  <div class="decksWithWinPercentage">
+  <div class="decksWithWinPercentage card">
     <form>
       <label for="decksWithWinPercentageWinPercentage">Win Percentage:</label>
       <input
@@ -74,8 +75,17 @@
         Buscar
       </button>
     </form>
+
+    <div class="chart">
+      <p-chart
+        type="pie"
+        [data]="decksWithWinPercentageData"
+        [options]="options"
+      />
+    </div>
   </div>
-  <div class="lossesByCombo">
+
+  <div class="lossesByCombo card">
     <form>
       <label for="lossesByComboStartDate">Start Date:</label>
       <input
@@ -105,9 +115,12 @@
         Buscar
       </button>
     </form>
+    <div class="chart">
+      <p-chart type="doughnut" [data]="lossesByComboData" [options]="options" />
+    </div>
   </div>
 
-  <div class="topCombos">
+  <div class="topCombos card">
     <form>
       <label for="topCombosSize">Combo size:</label>
       <input type="number" name="topCombosSize" #topCombosSize />
@@ -138,9 +151,16 @@
         Buscar
       </button>
     </form>
+
+    @for(combo of topCombosData; track combo){ 
+      <p>{{combo.winPercentage}}</p>
+      @for(cards of combo._id; track cards){
+        <p>{{cards.name}}</p>
+      }
+    }
   </div>
 
-  <div class="mostUsedCards">
+  <div class="mostUsedCards card">
     <form>
       <label for="mostUsedCardsLevel">Level:</label>
       <input type="number" name="mostUsedCardsLevel" #mostUsedCardsLevel />
@@ -156,9 +176,13 @@
         Buscar
       </button>
     </form>
+
+    <div class="chart">
+      <p-chart type="pie" [data]="mostUsedCardsData" [options]="options" />
+    </div>
   </div>
 
-  <div class="undefeatedPlayers">
+  <div class="undefeatedPlayers card">
     <form>
       <label for="undefeatedPlayersTrophies">Trophies:</label>
       <input
@@ -174,9 +198,12 @@
         Buscar
       </button>
     </form>
+    <div class="chart">
+      <p-chart type="pie" [data]="undefeatedPlayersData" [options]="options" />
+    </div>
   </div>
 
-  <div class="cardsWithHighLossRate">
+  <div class="cardsWithHighLossRate card">
     <form>
       <label for="cardsWithHighLossRateStartDate">Start Date:</label>
       <input
@@ -195,7 +222,7 @@
         type="number"
         name="cardsWithHighLossRateLimit"
         #cardsWithHighLossRateLimit
-        placeholder="Limit Percentage"
+        placeholder="Limit Quantity"
       />
 
       <button
@@ -211,5 +238,9 @@
         Buscar
       </button>
     </form>
+
+    <div class="chart">
+      <p-chart type="pie" [data]="cardsWithHighLossRateData" [options]="options" />
+    </div>
   </div>
 </main>
