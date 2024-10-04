@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ChartModule } from 'primeng/chart';
 import { QuerysService } from './services/querys.service';
+import { funcao } from './k';
 
 @Component({
   selector: 'app-root',
@@ -29,6 +30,10 @@ export class AppComponent {
     this.lossesCombo.push(card);
   }
 
+
+  chama():void{
+    funcao();
+  }
   constructor(private querys: QuerysService) {}
 
   WinLossPercentage(cardName: string, startDate: string, endDate: string) {
@@ -119,7 +124,8 @@ export class AppComponent {
       .subscribe((result: any) => {
         const documentStyle = getComputedStyle(document.documentElement);
         const textColor = documentStyle.getPropertyValue('--text-color');
-
+        const surfaceBorder =
+          documentStyle.getPropertyValue('--surface-border');
         this.lossesByComboData = {
           labels: ['Losses'],
           datasets: [

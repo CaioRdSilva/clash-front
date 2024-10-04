@@ -3,24 +3,106 @@ main {
   flex-direction: column;
   align-items: center;
   margin-top: 10vh;
+  filter: drop-shadow(30px 10px #4444dd);
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content:left;
+}
+label {
+  font-size: 1.5rem;
+  font-weight: bold;
+  display:inline-flex;
+  padding-bottom: 1rem;
+  font-family:monospace;
+  letter-spacing: -1px;
+  margin-right: 0.5rem;
+}
+
+input{
+  margin-bottom: 1em;
+}
+button, input{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-right: 1.5rem;
+  font-size: 1.1rem;
+  font-weight:normal;
+  border-radius: 5px;
+}
+button:hover{
+  color:#ebeaea;
+  background-color: black;
 }
 
 .card {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  min-width: 40vw;
+  min-width: 60em;
   width: fit-content;
   padding: 1rem;
   margin-bottom: 4vh;
   border-radius: 25px;
   background: #ebeaea;
+  height: fit-content;
+  padding-left: 3em;
+  justify-content: space-evenly;
 }
+
 
 .chart {
   max-width: 50%;
-  display: flex;
+  display: block;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  filter: drop-shadow(3px 1.5px #40bc9c);
+  margin-right: 3em;
+}
+
+.array{
+  display: flex;
+  flex-direction: column;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.collapsible{
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+
+.header-bar .logo{
+  display: flex;
+  align-items: center;
+  background-color: #007bff;
+  color: white;
+  padding: 0.7em;
+  margin: auto;
+  padding-left: 55em;
+  position:relative;
+}
+
+.wallpaper{
+  position: relative;
+  z-index: -2;
 }
