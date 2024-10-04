@@ -1,199 +1,255 @@
 <header class="header-bar">
   <div class="logo">
-      <img src="/Clashicon3.png" />
-     
+    <img src="/Clashicon3.png" />
   </div>
 </header>
 
-
 <main>
-
   <div class="winLossPercentage card">
-    <form>
-      <label for="winLossPercentageCardName">Card Name:</label>
-      <input class="CardStyle"
-        type="text"
-        name="winLossPercentageCardName"
-        #winLossPercentageCardName
-        placeholder="Card Name"
-      />
-      
-      <label for="winLossPercentageStartDate">Start Date:</label>
-      <input class="CardStyle"
-        type="date"
-        name="winLossPercentageStartDate"
-        #winLossPercentageStartDate
-      />
-      
-      <label for="winLossPercentageEndDate">End Date:</label>
-      <input class="endDateButton"
-        type="date"
-        name="winLossPercentageEndDate"
-        #winLossPercentageEndDate
-      />
-      
-      <button
-        
-        class="WinLossButton"
-        (click)="
-          WinLossPercentage(
-            winLossPercentageCardName.value,
-            winLossPercentageStartDate.value,
-            winLossPercentageEndDate.value
-          )
-        "
-      >
-        Buscar
-      </button>
-    </form>
+    <h5>Win & Loss rate</h5>
+    <div class="cardContent">
+      <form>
+        <label for="winLossPercentageCardName">Card Name:</label>
+        <input
+          class="CardStyle"
+          type="text"
+          name="winLossPercentageCardName"
+          #winLossPercentageCardName
+        />
 
-    <div class="chart">
-      <p-chart type="pie" [data]="WinLossPercentageData" [options]="options" />
+        <label for="winLossPercentageStartDate">Start Date:</label>
+        <input
+          class="CardStyle"
+          type="date"
+          name="winLossPercentageStartDate"
+          #winLossPercentageStartDate
+        />
+
+        <label for="winLossPercentageEndDate">End Date:</label>
+        <input
+          class="endDateButton"
+          type="date"
+          name="winLossPercentageEndDate"
+          #winLossPercentageEndDate
+        />
+
+        <button
+          class="WinLossButton"
+          (click)="
+            WinLossPercentage(
+              winLossPercentageCardName.value,
+              winLossPercentageStartDate.value,
+              winLossPercentageEndDate.value
+            )
+          "
+        >
+          Buscar
+        </button>
+      </form>
+
+      <div class="chart">
+        <p-chart
+          type="pie"
+          [data]="WinLossPercentageData"
+          [options]="options"
+        />
+      </div>
     </div>
   </div>
 
   <div class="decksWithWinPercentage card">
-    <form>
-      <label for="decksWithWinPercentageWinPercentage">Win Percentage:</label>
-      <input class="CardStyle"
-        min="1"
-        max="100"
-        type="number"
-        name="decksWithWinPercentageWinPercentage"
-        #decksWithWinPercentageWinPercentage
-        placeholder="Win Percentage"
-      />
-      
-      <label for="decksWithWinPercentageStartDate">Start Date:</label>
-      <input class="CardStyle"
-        type="date"
-        name="decksWithWinPercentageStartDate"
-        #decksWithWinPercentageStartDate
-      />
-      
-      <label for="decksWithWinPercentageEndDate">End Date:</label>
-      <input class="endDateButton"
-        type="date"
-        name="decksWithWinPercentageEndDate"
-        #decksWithWinPercentageEndDate
-      />
+    <h5>Deck win rate</h5>
+    <div class="cardContent">
+      <form>
+        <label for="decksWithWinPercentageWinPercentage">Win Percentage:</label>
+        <input
+          class="CardStyle"
+          min="1"
+          max="100"
+          type="number"
+          name="decksWithWinPercentageWinPercentage"
+          #decksWithWinPercentageWinPercentage
+        />
 
-      <button
-        class="deckWinButton"
-        (click)="
-          decksWithWinPercentage(
-            decksWithWinPercentageWinPercentage.value,
-            decksWithWinPercentageStartDate.value,
-            decksWithWinPercentageEndDate.value
-          )
-        "
-      >
-        Buscar
-      </button>
-    </form>
+        <label for="decksWithWinPercentageStartDate">Start Date:</label>
+        <input
+          class="CardStyle"
+          type="date"
+          name="decksWithWinPercentageStartDate"
+          #decksWithWinPercentageStartDate
+        />
 
-    <div class="chart">
-      <p-chart
-        type="pie"
-        [data]="decksWithWinPercentageData"
-        [options]="options"
-      />
+        <label for="decksWithWinPercentageEndDate">End Date:</label>
+        <input
+          class="endDateButton"
+          type="date"
+          name="decksWithWinPercentageEndDate"
+          #decksWithWinPercentageEndDate
+        />
+
+        <button
+          class="deckWinButton"
+          (click)="
+            decksWithWinPercentage(
+              decksWithWinPercentageWinPercentage.value,
+              decksWithWinPercentageStartDate.value,
+              decksWithWinPercentageEndDate.value
+            )
+          "
+        >
+          Buscar
+        </button>
+      </form>
+
+      <div class="chart">
+        <p-chart
+          type="pie"
+          [data]="decksWithWinPercentageData"
+          [options]="options"
+        />
+      </div>
     </div>
   </div>
 
   <div class="lossesByCombo card">
-    <form>
-      <label for="lossesByComboStartDate">Start Date:</label>
-      <input class="CardStyle"
-        type="date"
-        name="lossesByComboStartDate"
-        #lossesByComboStartDate
-      />
-      
-      <label for="lossesByComboEndDate">End Date:</label>
-      <input class="CardStyle"
-        type="date"
-        name="lossesByComboEndDate"
-        #lossesByComboEndDate 
-      />
-      
-      <label for="lossesByComboList">Combo:</label>
-      <input class="endDateButton" name="lossesByComboList" #lossesByComboList />
-      
-      <button class="lossesByComboButton" (click)="pushValueToLossesConmbo(lossesByComboList.value)">
-        Adicionar ao combo
-      </button>
+    <h5>Losses By Combo</h5>
+    <div class="cardContent">
+      <form>
+        <label for="lossesByComboStartDate">Start Date:</label>
+        <input
+          class="CardStyle"
+          type="date"
+          name="lossesByComboStartDate"
+          #lossesByComboStartDate
+        />
 
-      <button
-        class="lossesByComboButton"
-        (click)="
-          lossesByCombo(
-            lossesByComboStartDate.value,
-            lossesByComboEndDate.value
-          )
-        "
-      >
-        Buscar
-      </button>
-    </form>
-    <div class="chart">
-      <p-chart type="pie" [data]="lossesByComboData" [options]="options" /> 
+        <label for="lossesByComboEndDate">End Date:</label>
+        <input
+          class="CardStyle"
+          type="date"
+          name="lossesByComboEndDate"
+          #lossesByComboEndDate
+        />
+
+        <label for="lossesByComboList">Combo:</label>
+        <input
+          class="endDateButton"
+          name="lossesByComboList"
+          #lossesByComboList
+        />
+
+        <div class="specificButtons">
+          <button
+            class="lossesByComboButton"
+            (click)="
+              pushValueToLossesCombo(lossesByComboList.value);
+              lossesByComboList.value = ''
+            "
+          >
+            Adicionar ao combo
+          </button>
+          <button
+            class="lossesByComboButton"
+            (click)="
+              lossesByCombo(
+                lossesByComboStartDate.value,
+                lossesByComboEndDate.value
+              )
+            "
+          >
+            Buscar
+          </button>
+        </div>
+        <div class="listOfCards">
+          @for(card of lossesCombo; track card){
+          <p
+            (click)="removeValueToLossesCombo(lossesCombo.indexOf(card))"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            mat-button
+          >
+            {{ card }}
+            <mat-icon class="closeTag">close</mat-icon>
+          </p>
+          }
+        </div>
+      </form>
+      <div class="chart">
+        <p-chart type="pie" [data]="lossesByComboData" [options]="options" />
+      </div>
     </div>
   </div>
 
   <div class="topCombos card">
-    <form>
-      <label for="topCombosSize">Combo size:</label>
-      <input type="number" name="topCombosSize" #topCombosSize />
+    <h5>Top Combos</h5>
+    <div class="cardContent">
+      <form>
+        <label for="topCombosSize">Combo size:</label>
+        <input type="number" name="topCombosSize" #topCombosSize />
 
-      <label for="topCombosWinPercentage">Win Percentage:</label>
-      <input
-        type="number"
-        name="topCombosWinPercentage"
-        #topCombosWinPercentage
-      />
+        <label for="topCombosWinPercentage">Win Percentage:</label>
+        <input
+          type="number"
+          name="topCombosWinPercentage"
+          #topCombosWinPercentage
+        />
 
-      <label for="topCombosStartDate">Start Date:</label>
-      <input type="date" name="topCombosStartDate" #topCombosStartDate />
-      <label for="topCombosEndDate">End Date:</label>
-      <input type="date" name="topCombosEndDate" #topCombosEndDate />
+        <label for="topCombosStartDate">Start Date:</label>
+        <input type="date" name="topCombosStartDate" #topCombosStartDate />
+        <label for="topCombosEndDate">End Date:</label>
+        <input type="date" name="topCombosEndDate" #topCombosEndDate />
 
-      <button
-        class="topCombosButton"
-        (click)="
-          topCombos(
-            topCombosSize.value,
-            topCombosWinPercentage.value,
-            topCombosStartDate.value,
-            topCombosEndDate.value
-          )
-        "
-      >
-        Buscar
-      </button>
-    </form>
+        <button
+          class="topCombosButton"
+          (click)="
+            topCombos(
+              topCombosSize.value,
+              topCombosWinPercentage.value,
+              topCombosStartDate.value,
+              topCombosEndDate.value
+            )
+          "
+        >
+          Buscar
+        </button>
+      </form>
 
-    <div class="array">
-    @for(combo of topCombosData; track combo){ 
-      <button type="button" (click)="chama()" class="collapsible">{{combo.winPercentage}}</button>
+      <div class="array">
+        @for(combo of topCombosData; track combo){
+        <button type="button" (click)="chama()" class="collapsible">
+          {{ combo.winPercentage }}%
+        </button>
 
-      <div class="content">
-      @for(cards of combo._id; track cards){
-        <p>{{cards.name}}</p>
-      }
+        <div class="content">
+          @for(cards of combo._id; track cards){
+          <p>{{ cards.name }}</p>
+          }
+        </div>
+        }
       </div>
-    }
-  </div>
-
+    </div>
   </div>
 
   <div class="mostUsedCards card">
+    <h5>Most used cards</h5>
+   <div class="cardContent">
     <form>
       <label for="mostUsedCardsLevel">Level:</label>
-      <input class = "CardStyle" type="number" name="mostUsedCardsLevel" #mostUsedCardsLevel />
+      <input
+        class="CardStyle"
+        type="number"
+        name="mostUsedCardsLevel"
+        #mostUsedCardsLevel
+      />
 
       <label for="mostUsedCardsLimit">Limit:</label>
-      <input class = "CardStyle" type="number" name="mostUsedCardsLimit" #mostUsedCardsLimit />
+      <input
+        class="CardStyle"
+        type="number"
+        name="mostUsedCardsLimit"
+        #mostUsedCardsLimit
+      />
       <button
         class="lossesByComboButton"
         (click)="
@@ -207,30 +263,36 @@
     <div class="chart">
       <p-chart type="pie" [data]="mostUsedCardsData" [options]="options" />
     </div>
+   </div>
   </div>
 
   <div class="undefeatedPlayers card">
-    <form>
-      <label for="undefeatedPlayersTrophies">Trophies:</label>
-      <input
-        type="number"
-        name="mostUsedCardsLevel"
-        #undefeatedPlayersTrophies
-      />
-
-      <button
-        class="undefeatedPlayersButton"
-        (click)="undefeatedPlayers(undefeatedPlayersTrophies.value)"
-      >
-        Buscar
-      </button>
-    </form>
-    <div class="chart">
-      <p-chart type="pie" [data]="undefeatedPlayersData" [options]="options" />
+    <h5>Undefeated players</h5>
+    <div class="cardContent">
+      <form>
+        <label for="undefeatedPlayersTrophies">Trophies:</label>
+        <input
+          type="number"
+          name="mostUsedCardsLevel"
+          #undefeatedPlayersTrophies
+        />
+  
+        <button
+          class="undefeatedPlayersButton"
+          (click)="undefeatedPlayers(undefeatedPlayersTrophies.value)"
+        >
+          Buscar
+        </button>
+      </form>
+      <div class="chart">
+        <p-chart type="pie" [data]="undefeatedPlayersData" [options]="options" />
+      </div>
     </div>
   </div>
 
   <div class="cardsWithHighLossRate card">
+    <h5>Cards with high losing rate</h5>
+   <div class="cardContent">
     <form>
       <label for="cardsWithHighLossRateStartDate">Start Date:</label>
       <input
@@ -249,7 +311,6 @@
         type="number"
         name="cardsWithHighLossRateLimit"
         #cardsWithHighLossRateLimit
-        placeholder="Limit Quantity"
       />
 
       <button
@@ -267,7 +328,12 @@
     </form>
 
     <div class="chart">
-      <p-chart type="pie" [data]="cardsWithHighLossRateData" [options]="options" />
+      <p-chart
+        type="pie"
+        [data]="cardsWithHighLossRateData"
+        [options]="options"
+      />
     </div>
+   </div>
   </div>
 </main>

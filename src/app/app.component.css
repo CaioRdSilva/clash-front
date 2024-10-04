@@ -3,42 +3,78 @@ main {
   flex-direction: column;
   align-items: center;
   margin-top: 10vh;
-  filter: drop-shadow(30px 10px #4444dd);
+  filter: drop-shadow(12px 7px #007bff);
 }
 
-form{
+form {
   display: flex;
   flex-direction: column;
   align-items: left;
-  justify-content:left;
+  justify-content: left;
 }
 label {
   font-size: 1.5rem;
   font-weight: bold;
-  display:inline-flex;
+  display: inline-flex;
   padding-bottom: 1rem;
-  font-family:monospace;
+  font-family: monospace;
   letter-spacing: -1px;
   margin-right: 0.5rem;
 }
 
-input{
+input {
   margin-bottom: 1em;
 }
-button, input{
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+button {
+  padding: 3px 5px;
+}
+
+button,
+input {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   margin-right: 1.5rem;
   font-size: 1.1rem;
-  font-weight:normal;
+  font-weight: normal;
   border-radius: 5px;
 }
-button:hover{
-  color:#ebeaea;
+button:hover {
+  color: #ebeaea;
   background-color: black;
+}
+
+.specificButtons {
+  display: flex;
+}
+
+.listOfCards {
+  display: flex;
+}
+
+.listOfCards p {
+  display: flex;
+  margin: 10px 10px 0 0;
+  padding: 2px 5px;
+  border-radius: 2rem;
+  background-color: #d4d2d2;
+}
+
+.closeTag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.listOfCards p:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
 }
 
 .card {
   display: flex;
+  flex-direction: column;
   align-items: center;
   min-width: 60em;
   width: fit-content;
@@ -51,6 +87,10 @@ button:hover{
   justify-content: space-evenly;
 }
 
+h5 {
+  font-family: monospace;
+  font-weight: 700;
+}
 
 .chart {
   max-width: 50%;
@@ -62,20 +102,38 @@ button:hover{
   margin-right: 3em;
 }
 
-.array{
+.cardContent {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
 }
 
-.active, .collapsible:hover {
+.array {
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+  display: block;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(3px 1.5px #40bc9c);
+  margin-right: 3em;
+}
+
+.array button {
+  display: flex;
+  justify-content: center;
+}
+
+.active,
+.collapsible:hover {
   background-color: #555;
 }
 
-.collapsible{
+.collapsible {
   background-color: #777;
   color: white;
   cursor: pointer;
-  padding: 18px;
+  padding: 12px;
   width: 100%;
   border: none;
   text-align: left;
@@ -90,8 +148,7 @@ button:hover{
   background-color: #f1f1f1;
 }
 
-
-.header-bar .logo{
+.header-bar .logo {
   display: flex;
   align-items: center;
   background-color: #007bff;
@@ -99,10 +156,5 @@ button:hover{
   padding: 0.7em;
   margin: auto;
   padding-left: 55em;
-  position:relative;
-}
-
-.wallpaper{
   position: relative;
-  z-index: -2;
 }

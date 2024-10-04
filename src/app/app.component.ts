@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { ChartModule } from 'primeng/chart';
 import { QuerysService } from './services/querys.service';
 import { funcao } from './k';
+import {MatIconModule} from '@angular/material/icon'; 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, ChartModule],
+  imports: [RouterOutlet, FormsModule, ChartModule, MatIconModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -26,12 +27,15 @@ export class AppComponent {
   undefeatedPlayersData: any;
   cardsWithHighLossRateData: any;
 
-  pushValueToLossesConmbo(card: string) {
+  pushValueToLossesCombo(card: string) {
     this.lossesCombo.push(card);
   }
 
+  removeValueToLossesCombo(index:number){
+    this.lossesCombo.splice(index, 1)
+  }
 
-  chama():void{
+  chama(): void {
     funcao();
   }
   constructor(private querys: QuerysService) {}
@@ -77,8 +81,6 @@ export class AppComponent {
       .subscribe((result: any) => {
         const documentStyle = getComputedStyle(document.documentElement);
         const textColor = documentStyle.getPropertyValue('--text-color');
-        const surfaceBorder =
-          documentStyle.getPropertyValue('--surface-border');
 
         this.decksWithWinPercentageData = {
           labels: result.map((item: any) => item.cardName),
@@ -124,8 +126,7 @@ export class AppComponent {
       .subscribe((result: any) => {
         const documentStyle = getComputedStyle(document.documentElement);
         const textColor = documentStyle.getPropertyValue('--text-color');
-        const surfaceBorder =
-          documentStyle.getPropertyValue('--surface-border');
+
         this.lossesByComboData = {
           labels: ['Losses'],
           datasets: [
@@ -170,8 +171,6 @@ export class AppComponent {
       .subscribe((result: any) => {
         const documentStyle = getComputedStyle(document.documentElement);
         const textColor = documentStyle.getPropertyValue('--text-color');
-        const surfaceBorder =
-          documentStyle.getPropertyValue('--surface-border');
 
         this.mostUsedCardsData = {
           labels: result.map((item: any) => item._id),
@@ -215,7 +214,6 @@ export class AppComponent {
     this.querys.undefeatedPlayers(Number(trophies)).subscribe((result: any) => {
       const documentStyle = getComputedStyle(document.documentElement);
       const textColor = documentStyle.getPropertyValue('--text-color');
-      const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
 
       this.undefeatedPlayersData = {
         labels: result.map((item: any) => item.name),
@@ -261,8 +259,6 @@ export class AppComponent {
       .subscribe((result: any) => {
         const documentStyle = getComputedStyle(document.documentElement);
         const textColor = documentStyle.getPropertyValue('--text-color');
-        const surfaceBorder =
-          documentStyle.getPropertyValue('--surface-border');
 
         this.cardsWithHighLossRateData = {
           labels: result.map((item: any) => item._id),
